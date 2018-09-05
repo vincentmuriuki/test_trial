@@ -10,4 +10,4 @@ install:
   - pip install requests
   - pip install Flask
 
-script: python test.py
+script: python tests.py
