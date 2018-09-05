@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+
+cache: pip
+install:
+  - pip install -r requirements.txt
+  - pip installrequests-mock[fixture]
+  - pip install -U pytest
+  - pip install requests
+  - pip install Flask
+
+script: python test.py
