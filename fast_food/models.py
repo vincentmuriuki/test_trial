@@ -1,17 +1,17 @@
 orders = [{
     'id' : 1025,
     'client_id' : 1,
-    'status' : 'Completed'
+    'status' : 'Processing'
 },
 {
     'id' : 458,
     'client_id' : 2,
-    'status' : 'Processing'
+    'status' : 'Completed'
 },
 {
     'id' : 9654,
     'client_id' : 3,
-    'status' : 'Processing'
+    'status' : 'Completed'
 },
 {
     'id' : 85225,
@@ -26,6 +26,6 @@ orders = [{
 {
     'id' : 85478,
     'client_id' : 6,
-    'status' : 'Processing'
+    'status' : 'Completed'
 }
 ]

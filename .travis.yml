@@ -9,5 +9,6 @@ install:
   - pip install -U pytest
   - pip install requests
   - pip install Flask
+  - pip install pylint
 
 script: python tests.py

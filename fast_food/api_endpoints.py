@@ -9,14 +9,14 @@ from fast_food.models import orders
 @app.route('/orders' , methods=['GET'])
 def all_orders ():
     session.clear()
-    session['order_items'] = models.orders
-    return json.dumps(session['order_items'])
+    session['order_list'] = models.orders
+    return json.dumps(session['order_list'])
 
 @app.route('/orders/<int:order_id>' , methods=['GET'])
 def specific_order (order_id):
     session.clear()
-    session['order_items'] = models.orders
-    for i in session['order_items']:
+    session['order_list'] = models.orders
+    for i in session['order_list']:
         order = i.get(str('id'))
         if order == order_id:
             return json.dumps(i)
@@ -25,16 +25,16 @@ def specific_order (order_id):
 @app.route('/orders', methods=['POST'])
 def add_order ():
     order = request.get_json(silent=True)
-    session['order_items'] = models.orders
-    for i in session['order_items']:
+    session['order_list'] = models.orders
+    for i in session['order_list']:
         found = i.get(str('id'))
         if order['id'] == found:
             return "Exists"
-    session['order_items'].append(order)
-    return json.dumps(session['order_items'])
+    session['order_list'].append(order)
+    return json.dumps(session['order_list'])
 
 
-@app.route('/api/v1/orders/<int:order_id>', methods = ['PUT'])
+@app.route('/orders/<int:order_id>', methods = ['PUT'])
 def update_order(order_id):
     order = filter(lambda t: t['id'] == order_id, orders)
     if len(order) == 0:
@@ -52,5 +52,5 @@ def update_order(order_id):
     order[0]['id'] = request.json.get('category', order[0]['category'])
     order[0]['client_id'] = request.json.get('food_type', order[0]['food_type'])
     order[0]['status'] = request.json.get('price', order[0]['price']) 
-    session['order_items'].append(order)
-    return json.dumps(session['order_items'])
+    session['order_list'].append(order)
+    return json.dumps(session['order_list'])

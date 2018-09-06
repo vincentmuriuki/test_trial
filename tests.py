@@ -1,6 +1,6 @@
 # tests
-import requests
 import json
+import requests
 import fast_food
 
 client = fast_food.app.test_client()
@@ -39,8 +39,8 @@ def test_post_order(requests_mock):
 
 def test_update_order(requests_mock):
     data = {
-        "id" : 14,
-        "customer_id" : 1254,
+        "id" : 54,
+        "customer_id" : 7895,
         "status" : ""
     }
     update = {
